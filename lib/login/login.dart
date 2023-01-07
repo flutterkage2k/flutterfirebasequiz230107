@@ -18,12 +18,26 @@ class LoginScreen extends StatelessWidget {
               size: 150,
             ),
             Flexible(
-                child: LoginButton(
-              icon: FontAwesomeIcons.userNinja,
-              text: 'Continue as Guest',
-              loginMethod: AuthService().anonLogin,
-              color: Colors.deepPurple,
-            ))
+              child: LoginButton(
+                icon: FontAwesomeIcons.userNinja,
+                text: 'Continue as Guest',
+                loginMethod: AuthService().anonLogin,
+                color: Colors.deepPurple,
+              ),
+            ),
+            LoginButton(
+              icon: FontAwesomeIcons.google,
+              text: 'Sign in with Google',
+              loginMethod: AuthService().googleLogin,
+              color: Colors.blue,
+            ),
+            if (TargetPlatform.iOS == Theme.of(context).platform)
+              LoginButton(
+                icon: FontAwesomeIcons.apple,
+                text: 'Sign in with Apple',
+                loginMethod: AuthService().signInWithApple,
+                color: Colors.black,
+              ),
           ],
         ),
       ),
